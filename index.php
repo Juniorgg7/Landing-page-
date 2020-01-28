@@ -1,3 +1,18 @@
+<?php 
+	include("config.php");
+
+	$pdo = new PDO("mysql:host=localhost;dbname=code", "root", "");
+
+	if(isset($_POST['enviar'])) {
+		$nome = $_POST['nome'];
+		$email = $_POST['email'];
+		$mensagem = $_POST['mensagem'];
+		
+		$sql = $pdo->prepare("INSERT INTO `dadoscliente` VALUES (null,?,?,?)");
+		$sql->execute(array($nome, $email, $mensagem));
+	}
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -8,10 +23,9 @@
 	<meta name="Keywords" content="desenvolvimento de site, desenvolvimento, web, code" />
 	<meta name="robots" content="index, follow" />
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<link href="estilo/all.css" rel="stylesheet"> <!--load all styles -->
-	
+	<link href="<?php echo COMMAND_PATH; ?>estilo/all.css" rel="stylesheet"> <!--load all styles -->	
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="estilo/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo COMMAND_PATH; ?>estilo/style.css" />
 	<title>Code.com.br</title>
 	
 </head>
@@ -227,11 +241,12 @@
 		<footer class="rodape">
 		
 			<div class="center">
+				
 				<p>Copyright 2020 - Todos os Direitos Reservados</p>
 
-			</div>
+			</div><!--Center-->
 
-		</footer>
+		</footer><!--Rodapé-->
 	</section><!--Formulário-->
 	
 	<script type="text/javascript" src="js/jquery.js"></script>
