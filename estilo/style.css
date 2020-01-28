@@ -181,6 +181,7 @@ html, body {
 	color: rgba(255, 255, 255, 0.75);
 	font-size: 22px;
 	padding: 20px 0;
+	text-align: center;
 }
 
 .detalhes p:nth-of-type(2) {
@@ -472,15 +473,29 @@ html, body {
 	text-decoration: none;
 }
 
-.formulario .rodape {
+.rodape {
 	background-color: #282b34;
 	padding: 20px;	
 }
-
-.formulario .rodape p {
+.rodape p {
 	font-size: 15px;
 	margin: 0;
 	text-align: center;
+}
+
+.poppup {
+	padding: 20px 17px;
+	border: 1px solid #e97770;
+	position: absolute;
+	top: 34px;
+	right: 10px;
+	background-color: rgba(255, 255, 255, 0.5);;
+	text-align: center;
+	z-index: 1000;
+	border-radius: 5px;
+	color: #282b34;
+	display: none;
+	
 }
 
 /*Responsivo*/
